@@ -1,8 +1,7 @@
 local beautiful = require("beautiful")
 local gears = require("gears")
 
---[[ Theme_path = awful.util.getdir("config") .. "src/theme/" ]]
-Theme_path = "/home/four/Code/awesome/src/theme/"
+Theme_path = awful.util.getdir("config") .. "src/theme/"
 Theme = {}
 
 dofile(Theme_path .. "theme_vars.lua")
