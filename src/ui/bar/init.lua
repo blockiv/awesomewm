@@ -86,10 +86,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
 	-- make custom tooltip for the whole button
 	local layoutbox_tooltip = helpers.make_popup_tooltip(layoutname(), function(d)
-		return awful.placement.bottom_right(d, {
+		return awful.placement.bottom_left(d, {
 			margins = {
-				bottom = beautiful.bar_height + beautiful.useless_gap * 2,
-				right = beautiful.useless_gap * 2,
+				left = beautiful.bar_height + beautiful.useless_gap * 2,
+				bottom = beautiful.useless_gap * 2,
 			},
 		})
 	end)
