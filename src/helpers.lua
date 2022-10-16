@@ -6,6 +6,10 @@ local dpi = beautiful.xresources.apply_dpi
 
 local helpers = {}
 
+function helpers.colorize_text(text, color)
+	return "<span foreground='" .. color .. "'>" .. text .. "</span>"
+end
+
 -- add hover support to wibox.container.background-based elements
 function helpers.add_hover(element, bg, hbg)
     element:connect_signal('mouse::enter', function (self)
