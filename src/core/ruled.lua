@@ -30,6 +30,8 @@ ruled.client.connect_signal("request::rules", function()
 				"Arandr",
 				"Nsxiv",
 				"Lxappearance",
+				"Scratchpad",
+				"Pulsemixer",
 			},
 			-- Note that the name property shown in xprop might be set slightly after creation of the client
 			-- and the name shown there might not match defined rules here.

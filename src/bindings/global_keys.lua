@@ -4,6 +4,7 @@ local bling = require("src.modules.bling")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 --[[ local menu = require("config.menu") ]]
+local spad = require("src.ui.scratchpad")
 
 local mod = modkey
 local ctrl = "Control"
@@ -34,15 +35,24 @@ return gears.table.join(
 	awful.key({ mod }, "Return", function()
 		awful.spawn(terminal)
 	end, { description = "Launch terminal", group = "Apps" }),
+	awful.key({ mod }, "grave", function()
+		spad:toggle()
+	end, { description = "Launch scratchpad", group = "Apps" }),
 	awful.key({ mod }, "w", function()
 		awful.spawn("firefox")
 	end, { description = "Open web browser", group = "Apps" }),
+	awful.key({ mod }, "a", function()
+		awful.spawn("st -c Pulsemixer -e pulsemixer")
+	end, { description = "Pulsemixer", group = "Apps" }),
+	awful.key({ mod, ctrl }, "p", function()
+		awful.spawn("rofi-pass")
+	end, { description = "Password manager", group = "Rofi" }),
 
 	-- [[ Tag related keybindings ]] --
 	awful.key({ mod, shift }, "h", awful.tag.viewprev, { description = "View previous tag", group = "Tag" }),
 	awful.key({ mod, shift }, "l", awful.tag.viewnext, { description = "View next tag", group = "Tag" }),
 	awful.key(
-		{ mod, shift },
+		{ mod },
 		"Tab",
 		awful.tag.history.restore,
 		{ description = "Return to previous tag", group = "Tag" }
@@ -57,10 +67,6 @@ return gears.table.join(
 		awful.client.focus.byidx(-1)
 		bling.module.flash_focus.flashfocus(client.focus)
 	end, { description = "Focus previous by index", group = "Client" }),
-	awful.key({ mod }, "Tab", function()
-		awful.client.focus.history.previous()
-		bling.module.flash_focus.flashfocus(client.focus)
-	end, { description = "Focus previous client", group = "Client" }),
 
 	-- Restore and focus minimized client
 	awful.key({ mod, ctrl }, "n", function()
