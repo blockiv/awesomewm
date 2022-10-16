@@ -10,7 +10,7 @@ bling.widget.tag_preview.enable({
 	honor_padding = true,
 	honor_workarea = true,
 	placement_fn = function(c)
-		awful.placement.top_left(c, {
+		awful.placement.left(c, {
 			margins = {
 				top = beautiful.useless_gap * 2,
 				left = beautiful.bar_height + beautiful.useless_gap * 2,
