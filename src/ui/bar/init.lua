@@ -147,7 +147,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
 				{
 					mkcontainer({
 						launcher,
-						taglist,
 						spacing = dpi(12),
 						layout = wibox.layout.fixed.vertical,
 					}),
@@ -168,7 +167,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		},
 		{
 			mkcontainer({
-				tasklist,
+				taglist,
 				layout = wibox.layout.fixed.vertical,
 			}),
 			halign = "center",
